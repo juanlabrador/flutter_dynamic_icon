@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -23,17 +25,19 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    FlutterDynamicIcon.getApplicationIconBadgeNumber().then((v) {
-      setState(() {
-        batchIconNumber = v;
+    if (Platform.isIOS) {
+      FlutterDynamicIcon.getApplicationIconBadgeNumber().then((v) {
+        setState(() {
+          batchIconNumber = v;
+        });
       });
-    });
 
-    FlutterDynamicIcon.getAlternateIconName().then((v) {
-      setState(() {
-        currentIconName = v ?? "`primary`";
+      FlutterDynamicIcon.getAlternateIconName().then((v) {
+        setState(() {
+          currentIconName = v ?? "`primary`";
+        });
       });
-    });
+    }
   }
 
   @override
@@ -53,7 +57,7 @@ class _MyAppState extends State<MyApp> {
               child: Text(
                 "Current batch number: $batchIconNumber",
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
             TextField(
@@ -127,7 +131,7 @@ class _MyAppState extends State<MyApp> {
               child: Text(
                 "Current Icon Name: $currentIconName",
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
             SwitchListTile(
