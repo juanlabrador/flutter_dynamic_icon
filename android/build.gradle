@@ -1,35 +1,21 @@
-group 'io.github.tastelessjolt.flutterdynamicicon'
-version '1.0-SNAPSHOT'
+// Generated file. Do not edit.
 
-buildscript {
+allprojects {
     repositories {
         google()
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.8.0'
+        mavenCentral()
     }
 }
 
-rootProject.allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
-
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
 
 android {
-    namespace "io.github.tastelessjolt.flutterdynamicicon"
-    compileSdkVersion 35
-
+    namespace = "io.github.tastelessjolt.flutterdynamicicon"
+    compileSdk = 35
     defaultConfig {
-        minSdkVersion 23
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-    lintOptions {
-        disable 'InvalidPackage'
+        minSdk = 23
+        targetSdk = 35
     }
 }
+

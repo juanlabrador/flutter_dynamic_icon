@@ -192,8 +192,9 @@ class _MyAppState extends State<MyApp> {
                     });
                     return;
                   }
-                } on PlatformException {
-                } catch (e) {}
+                } catch (e) {
+                  debugPrint(e.toString());
+                }
                 ScaffoldMessenger.of(context).hideCurrentSnackBar();
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text("Failed to change app icon"),
